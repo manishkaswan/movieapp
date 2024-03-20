@@ -37,6 +37,13 @@ function App() {
       clearTimeout(retryTimeoutRef.current);
     }
   };
+  useEffect(() => {
+    fetchMovies();
+
+    return () => {
+      cancelRetry();
+    };
+  }, []);
 
 
   return (
